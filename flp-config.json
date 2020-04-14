@@ -1,0 +1,34 @@
+{
+    "application": {
+        "id": "",
+        "title": "cus.sd.srl.vms.CORONA",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/",
+        "appUrl": "#CORONA-Display",
+        "navigationComponentName": "cus.sd.srl.vms",
+        "intentSemanticObject": "CORONA",
+        "intentAction": "Display",
+        "html5ApplicationName": "corona",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "855af118-16c6-4e9a-98df-46855de084e1"
+        ],
+        "contentPackages": [
+            "2b84efe7-46d3-4e38-9052-43ea01590351"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "CORONA TRACKER",
+        "subtitle": "CORONA LIVE TRACKER",
+        "searchKeywords": "CORONA TRACKER,CORONA LIVE TRACKER",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

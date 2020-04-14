@@ -1,0 +1,176 @@
+<mvc:View controllerName="cus.sd.srl.vms.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns:l="sap.ui.layout" xmlns:viz="sap.viz.ui5.controls" xmlns:tile="sap.suite.ui.commons"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:T="sap.ui.commons" xmlns="sap.uxap" xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:f="sap.ui.layout.form" xmlns:custom="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
+	<m:SplitApp id="SplitApp" initialDetail="IDInitial" xmlns="sap.uxap" xmlns:m="sap.m" xmlns:preference="cus.sd.srl.vms.view.block"
+		initialMaster="master">
+		<m:detailPages>
+			<m:Page id="IDInitial" title="INDIA COVID-19 TRACKER" showNavButton="false" navButtonPress="handleNavToMasterLHS">
+				<m:content>
+					<l:BlockLayout background="Dashboard" visible="true">
+						<l:content>
+							<l:BlockLayoutRow>
+								<l:content>
+									<l:BlockLayoutCell id="Cell1" width="1">
+										<l:content>
+											<viz:VizFrame id="idVizFrame1" uiConfig="{applicationSet:'fiori'}" vizType='donut' vizProperties="{title: { text : 'INDIA CASES '}}"
+												selectData="1" deselectData="2">
+												<viz:dataset>
+													<viz.data:FlattenedDataset data="{/ChartDataSet}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition name="Status" axis="1" value="{Status}"/>
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition name="Count" value="{Count}"/>
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<viz.feeds:FeedItem uid="size" type="Measure" values="Count"/>
+													<viz.feeds:FeedItem uid="color" type="Dimension" values="Status"/>
+												</viz:feeds>
+											</viz:VizFrame>
+										</l:content>
+									</l:BlockLayoutCell>
+									<l:BlockLayoutCell id="Cell2" width="1">
+										<l:content>
+											<viz:VizFrame id="idVizFrame2" uiConfig="{applicationSet:'fiori'}" vizType='column'
+												vizProperties="{title: { text : 'WORLD WIDE TODAY CASES'}}" selectData="1" deselectData="2">
+												<viz:dataset>
+													<viz.data:FlattenedDataset data="{/ChartDataSet1}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition name="Status" axis="1" value="{Status}"/>
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition name="Count" value="{Count}"/>
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count"/>
+													<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Status"/>
+												</viz:feeds>
+											</viz:VizFrame>
+										</l:content>
+									</l:BlockLayoutCell>
+								</l:content>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:content>
+									<l:BlockLayoutCell id="Cell3">
+										<l:content>
+											<viz:VizFrame id="idVizFrame3" height="100%" width="100%" uiConfig="{applicationSet:'fiori'}" vizType='column'
+												vizProperties="{title: { text : 'WORLD WIDE TODAY DEATH COUNT'}}" selectData="1" deselectData="2">
+												<viz:dataset>
+													<viz.data:FlattenedDataset data="{/ChartDataSet2}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition name="Status" axis="1" value="{Status}"/>
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition name="Count" value="{Count}"/>
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Count"/>
+													<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Status"/>
+												</viz:feeds>
+											</viz:VizFrame>
+										</l:content>
+									</l:BlockLayoutCell>
+									<l:BlockLayoutCell id="Cell4">
+										<l:content>
+											<viz:VizFrame id="idVizFrame4" vizProperties="{title: { text : 'TIME SERIES DEATH IN KARNATAKA'}}" uiConfig="{applicationSet:'fiori'}"
+												vizType='timeseries_line'>
+												<viz:dataset>
+													<viz.data:FlattenedDataset data="{/ChartDataSet3}">
+														<viz.data:dimensions>
+															<viz.data:DimensionDefinition name="Date" value="{Status}" dataType="date"/>
+														</viz.data:dimensions>
+														<viz.data:measures>
+															<viz.data:MeasureDefinition name="Cost" value="{Count}"/>
+														</viz.data:measures>
+													</viz.data:FlattenedDataset>
+												</viz:dataset>
+												<viz:feeds>
+													<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Cost"/>
+													<viz.feeds:FeedItem uid="timeAxis" type="Dimension" values="Date"/>
+												</viz:feeds>
+											</viz:VizFrame>
+										</l:content>
+									</l:BlockLayoutCell>
+								</l:content>
+							</l:BlockLayoutRow>
+						</l:content>
+					</l:BlockLayout>
+				</m:content>
+			</m:Page>
+			<m:Page id="detail" title="Detail" class="sapUiStdPage" showNavButton="true" navButtonText="Back" navButtonPress="onPressDetailBack">
+				<m:headerContent>
+					<m:Image src="https://www.srlworld.com/content/images/new/xnewLogo.png.pagespeed.ic.3N1Td3ZURo.webp"/>
+				</m:headerContent>
+				<m:content></m:content>
+				<m:footer>
+					<m:Toolbar>
+						<m:ToolbarSpacer/>
+						<m:Button icon="sap-icon://accept" type="Accept" text="Accept" tooltip="{i18n>CrtReq}" id="idApproveBtn" press="onPressApprove"/>
+						<m:Button icon="sap-icon://decline" type="Reject" text="Reject" tooltip="{i18n>CrtReq}" id="idRejectBtn" press="onPressReject1"/>
+						<m:Button icon="sap-icon://decline" type="Accept" text="Clarification" tooltip="{i18n>CrtReq}" id="idClrfiationBtn"
+							press="onPressClarification"/>
+						<!--<m:Button icon="sap-icon://forward" type="Emphasized" text="Approver Forward" tooltip="{i18n>CrtReq}" id="idFrdbtn"-->
+						<!--	press="onPressApprvForwarded"/>-->
+						<!--defaultAction="onDefaultAction">-->
+						<!--<m:menu>-->
+						<!--	<m:Menu itemSelected="onMenuAction">-->
+						<!--		<m:items>-->
+						<!--			<m:MenuItem text="Edit" icon="sap-icon://edit"/>-->
+						<!--			<m:MenuItem text="Save" icon="sap-icon://save"/>-->
+						<!--			<m:MenuItem text="Open" icon="sap-icon://open-folder"/>-->
+						<!--		</m:items>-->
+						<!--	</m:Menu>-->
+						<!--</m:menu>-->
+						<!--</m:MenuButton>-->
+					</m:Toolbar>
+				</m:footer>
+			</m:Page>
+		</m:detailPages>
+		<m:masterPages>
+			<m:Page id="IDmaster" title="Dashboard" showHeader="true">
+				<m:subHeader>
+					<m:Toolbar>
+						<m:SearchField liveChange="onSearch" id="idSEARCHSFC" width="100%" class="searchfield" placeholder="Search State Wise Details"></m:SearchField>
+					</m:Toolbar>
+				</m:subHeader>
+				<m:content>
+					<m:ObjectStatus ></m:ObjectStatus>
+					<m:List id="IDList" items="{/StateListSet}" growing="true">
+						<m:items>
+							<m:ObjectListItem type="Active" title="{state}" press="_handlePRItemPress">
+								<m:firstStatus>
+									<m:ObjectStatus text="Total Deaths: {deaths}" state="Error"></m:ObjectStatus>
+								</m:firstStatus>
+								<m:attributes>
+									<!--<m:ObjectAttribute text="{loc}"/>-->
+									<m:ObjectAttribute text="Active Cases: {active}"/>
+									<m:ObjectAttribute text="Confirmed: {confirmed}"/>
+									<m:ObjectAttribute text="Delta Confirmed: {deltaconfirmed}"/>
+									<m:ObjectAttribute text="Recovered: {recovered}"/>
+									<!--<m:ObjectAttribute text="Total Tested: {totaltested}"/>-->
+									<!--<m:ObjectAttribute text="UnConfirmed: {unconfirmed}"/>-->
+									<m:ObjectAttribute text="Last Updated: {lastupdatedtime}"/>
+								</m:attributes>
+							</m:ObjectListItem>
+						</m:items>
+					</m:List>
+					<m:Bar/>
+				</m:content>
+				<m:footer>
+					<m:Toolbar>
+						<m:ToolbarSpacer/>
+						<m:Button text="Designed By : Vikash/Suman"/>
+					</m:Toolbar>
+				</m:footer>
+			</m:Page>
+		</m:masterPages>
+	</m:SplitApp>
+</mvc:View>

@@ -1,0 +1,29 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:t="sap.ui.table" xmlns="sap.m" xmlns:f="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout" controllerName="cus.sd.srl.vms.controller.Header" xmlns:html="http://www.w3.org/1999/xhtml">
+	<f:SimpleForm id="idHeaderinfo" minWidth="1024" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" title="" labelSpanL="5"
+		labelSpanM="4" emptySpanL="0" emptySpanM="0" columnsL="2" columnsM="2" class="editableForm">
+		<!--<core:Title/>-->
+		<Label text="Purchase Requisition No"/>
+		<Input editable="false" value="{/PendPRListSet/0/banfn}" width="75%"></Input>
+		<Label text="Purchase Group" required="true"/>
+		<Input editable="false" value="{/PendPRListSet/0/ekgrp}" width="75%"></Input>
+		<Label text="Plant Code" required="false"/>
+		<Input editable="false" value="{/PendPRListSet/0/werks}" width="75%"></Input>
+		<Label text="Plant Name" required="false"/>
+		<Input editable="false" value="{/PendPRListSet/0/planttext}" width="75%"></Input>
+		<!--<Label text="Section Code" required="false"/>-->
+		<!--<Input editable="false" value="{/PendPRListSet/0/lgort}" width="75%"></Input>-->
+		<!--<core:Title/>-->
+		<Label text="Document Type"/>
+		<Input editable="false" value="{/PendPRListSet/0/bsart}" width="75%"></Input>
+		<Label text="Created By"/>
+		<Input value="{/PendPRListSet/0/crdBy}" editable="false" width="75%"/>
+		<Label text="Created On"/>
+		<Input editable="false" value="{/PendPRListSet/0/badat}" width="75%"></Input>
+		<!--<DatePicker id="idCrton" value="{/PendPRListSet/0/badat}" editable="false" width="75%"/>-->
+		<!--<Label text="Section Name" required="false"/>-->
+		<!--<Input editable="false" value="{/PendPRListSet/0/lgorttext}" width="75%"></Input>-->
+		<Label text="Clarification Box" required="false"/>
+		<TextArea id="idText" rows="3" value="{/PendPRListSet/0/text}" editable="false" width="75%"/>
+	</f:SimpleForm>
+</core:View>

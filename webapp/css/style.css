@@ -1,0 +1,58 @@
+/* Enter your custom styles here */
+
+.sapMIBar.sapMHeader-CTX {
+    color: #666666;
+    background-color: #ffffff;
+    filter: none;
+    background-image: none;
+}
+
+.sapMBar {
+    height: 3rem;
+    line-height: 3rem;
+    color: #666666;
+    background-color: #ffffff;
+    text-shadow: 0 0.0625rem 0 rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0 -0.0625rem #d1e0ee;
+}
+
+.sapUxAPObjectPageSection .sapUxAPObjectPageSubSection:last-child {
+    border-bottom: none;
+    background-color: white;
+}
+
+.sapUxAPObjectPageSectionTitle {
+    color: #000000;
+    font-size: 1.1rem;
+    border-bottom: 0.125rem solid #c13737;
+}
+
+.sapUiGlobalBackgroundColor,
+.sapMShellGlobalInnerBackground {
+    background-color: #ffffff;
+}
+
+.sapUiSizeCompact .sapUxAPObjectPageSectionHeader {
+    height: 2.5rem;
+    line-height: 2rem;
+    background-color: #ffffff!important;
+}
+
+.sapUxAPAnchorBar.sapMTB {
+    border: none;
+    box-shadow: inset 0 -0.125rem #d1e0ee, 0 0.125rem 0 0 #ffffff;
+    background: #ffffff;
+}
+
+.ImageCenter {
+    padding-top: 250px;
+}
+
+.sapMImg {
+    border: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -webkit-touch-callout: none;
+    width: 50px;
+}
